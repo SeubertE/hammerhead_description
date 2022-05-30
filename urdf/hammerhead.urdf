@@ -7,9 +7,9 @@
 
     <xacro:property name="wheel_radius" value="0.0325"/>
     <xacro:property name="wheel_width" value="0.025"/>
-    <xacro:property name="wheel_ygap" value="0.01"/>
-    <xacro:property name="wheel_zoff" value="0.01"/>
-    <xacro:property name="wheel_xoff" value="0.035"/>
+    <xacro:property name="wheel_ygap" value="0.0225"/>
+    <xacro:property name="wheel_zoff" value="0.0125"/>
+    <xacro:property name="wheel_xoff" value="0.075"/>
 
     <!-- Robot Base -->
     <link name="base_link">
@@ -60,7 +60,61 @@
     <xacro:wheel prefix="drivewhl_fl" x_reflect="1" y_reflect="1" />
     <xacro:wheel prefix="drivewhl_fr" x_reflect="1" y_reflect="-1" />
 
-   
+   <!-- Rear Platform-->
+    <link name="rear_platform">
+        <visual>
+        <geometry>
+            <box size="0.129 0.080 0.070"/>
+        </geometry>
+        <material name="Cyan">
+            <color rgba="0 1.0 1.0 1.0"/>
+        </material>
+        </visual>
+    </link>
+
+    <joint name="rear_plat_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="rear_platform"/>
+        <origin xyz="0.069 0 0.035"/>
+    </joint>
+
+    
+    <!-- LIDAR -->
+    <link name="lidar_base">
+        <visual>
+        <geometry>
+            <cylinder radius="0.0325" length="0.039"/>
+        </geometry>
+        <material name="Black">
+            <color rgba="0 0 0 1.0"/>
+        </material>
+        </visual>
+    </link>
+
+    <link name="lidar">
+        <visual>
+        <geometry>
+            <cylinder radius="0.0325" length="0.0105"/>
+        </geometry>
+        <material name="Red">
+            <color rgba="1.0 0 0 1.0"/>
+        </material>
+        </visual>
+    </link>
+
+    <joint name="lidar_base_joint" type="fixed">
+        <parent link="rear_platform"/>
+        <child link="lidar_base"/>
+        <origin xyz="0.030 0 0.0545"/>
+    </joint>
+
+    <joint name="lidar_joint" type="continuous">
+        <parent link="lidar_base"/>
+        <child link="lidar"/>
+        <origin xyz="0 0 .0195"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
     <!-- Kinect -->
 
 </robot>
