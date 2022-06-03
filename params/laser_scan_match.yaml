@@ -1,0 +1,37 @@
+/laser_scan_matcher:
+  ros__parameters:
+    base_frame: base_link
+    # clustering_threshold:
+    # debug_verify_tricks:
+    # do_alpha_test:
+    # do_alpha_test_thresholdDeg:
+    # do_compute_covariance:
+    # do_visibility_test:
+    # epsilon_theta:
+    # epsilon_xy:
+    # kf_dist_angular:
+    # kf_dist_linear:
+    laser_frame: lidar_frame
+    # map_frame:
+    # max_angular_correction_deg:
+    # max_correspondence_dist:
+    # max_iterations:
+    # max_linear_correction:
+    odom_frame: odom_frame
+    # orientation_neighbourhood:
+    # outliers_adaptive_mult:
+    # outliers_adaptive_order:
+    # outliers_maxPerc:
+    # outliers_remove_doubles:
+    publish_odom: /odom
+    publish_tf: true
+    # restart:
+    # restart_dt:
+    # restart_dtheta:
+    # restart_threshold_mean_error:
+    # sigma:
+    # use_corr_tricks:
+    # use_ml_weights:
+    # use_point_to_line_distance:
+    # use_sigma_weights:
+    # use_sim_time:
